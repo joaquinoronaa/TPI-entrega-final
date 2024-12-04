@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Guevara</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="logo-container">
+            <img src="LOGOGUEVARA.png" alt="Logo Colegio" class="logo">
+            <h1>Colegio Guevara</h1>
+        </div>
+
+        <div class="login-container">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" placeholder="Correo Electrónico" id="email">
+            <input type="password" placeholder="Contraseña" id="password">
+            <button onclick="iniciarSesion()">Entrar</button>
+            <a href="./registrarse.html">¿No tiene una cuenta? Regístrese</a>
+        </div>
+    </div>
+
+    <a href="registro.html" class="register-btn">Registrarse</a>
+
+    <div class="footer">
+        <img src="logoempresa.png" class="logo-footer">
+        <p>© 2024 Todos los derechos reservados</p>
+    </div>
+
+    <script>
+        function iniciarSesion() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const usuario = { email: "alumno@colegio.com", password: "123456", nombre: "Juan Pérez" };
+
+            if (email === usuario.email && password === usuario.password) {
+                localStorage.setItem('usuario', JSON.stringify(usuario));
+
+                window.location.href = 'boletin.html';
+            } else {
+                alert('Correo o contraseña incorrectos.');
+            }
+        }
+    </script>
+</body>
+</html>
+
